@@ -283,7 +283,7 @@ class acf_field_tags_input extends acf_field {
 		$value= ''; 
 		$terms = get_the_terms( $post_id, $tax );
 		$count = count($terms);
-		if($count > 1) {
+		if($count > 0) {
 		$i = 0;
 		foreach($terms as $term) {
 		if(++$i != $count) {
