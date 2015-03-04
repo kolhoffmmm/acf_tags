@@ -3,7 +3,7 @@
 /*
 Plugin Name: Advanced Custom Fields: Tags input
 Description: Simple field for non hierarchical taxonomy (tags)
-Version: 1.0.1
+Version: 1.0.2
 Author: Mouring Kolhoff
 Author URI: http://www.smesolutions.co.za
 License: GPLv2 or later
