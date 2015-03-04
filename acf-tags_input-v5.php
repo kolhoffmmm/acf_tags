@@ -278,20 +278,20 @@ class acf_field_tags_input extends acf_field {
 	
 	function load_value( $value, $post_id, $field ) {
 		if(is_admin()){return;}
+		if(trim($post_id=="")) return;
 		$tax=$field['tagtax'];
 		$terms=array();
 		$value= ''; 
 		$terms = get_the_terms( $post_id, $tax );
 		$count = count($terms);
-		if($count > 0) {
+		if($count >= 1) {
 		$i = 0;
-		foreach($terms as $term) {
+		foreach((array)$terms as $term) {
 		if(++$i != $count) {
 		$value.=$term->name.',';
 		}
 		else {$value.=$term->name;}}}  
 		return $value;
-		
 	}
 	
 	
