@@ -15,7 +15,7 @@ Field Name : Any name you wih to use
 Field Type : Under the grouping <strong>BASIC</strong> select the field type Tag
 
 Required : Your Choice
-Tag Taxonomy : Select a non hierarchical taxonomy (like the default Tags in wordpress) registered to your Post Type
+Tag Taxonomy : Select a <strong>non hierarchical taxonomy</strong> (like the default Tags in wordpress) registered to your Post Type
 
 
 
