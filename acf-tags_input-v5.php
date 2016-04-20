@@ -91,10 +91,11 @@ class acf_field_tags_input extends acf_field {
 		*  Create a simple text input using the 'font_size' setting.
 		*/
 		//print_r($field);
+		$type="";
 		$value=esc_attr($field['value']);
 		if(is_admin()){$type="readonly"; $value="";}
 		?>
-		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo $value ?>" style="font-size:<?php echo $field['font_size'] ?>px;" <?php echo $type;?>/>
+		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo $value ?>" <?php echo $type;?>/>
 		<?php
 	}
 	
@@ -278,20 +279,26 @@ class acf_field_tags_input extends acf_field {
 	
 	function load_value( $value, $post_id, $field ) {
 		if(is_admin()){return;}
-		if(trim($post_id=="")) return;
-		$tax=$field['tagtax'];
-		$terms=array();
-		$value= ''; 
-		$terms = get_the_terms( $post_id, $tax );
-		$count = count($terms);
-		if($count >= 1) {
-		$i = 0;
-		foreach((array)$terms as $term) {
-		if(++$i != $count) {
-		$value.=$term->name.',';
-		}
-		else {$value.=$term->name;}}}  
-		return $value;
+        if(trim($post_id=="")) return;
+        $tax=$field['tagtax'];
+        $terms=array();
+        $value= ''; 
+        $terms = get_the_terms( $post_id, $tax );
+        if( $terms ) {
+            $count = count($terms);
+            if($count >= 1) {
+                $i = 0;
+                foreach((array)$terms as $term) {
+                    if(++$i != $count) {
+                        $value.=$term->name.',';
+                    }
+                    else {
+                        $value.=$term->name;
+                    }
+                }
+            }  
+        }
+        return $value;
 	}
 	
 	
