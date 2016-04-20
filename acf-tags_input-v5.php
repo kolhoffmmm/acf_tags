@@ -95,7 +95,7 @@ class acf_field_tags_input extends acf_field {
 		$value=esc_attr($field['value']);
 		if(is_admin()){$type="readonly"; $value="";}
 		?>
-		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo $value ?>" style="font-size:<?php echo $field['font_size'] ?>px;" <?php echo $type;?>/>
+		<input type="text" name="<?php echo esc_attr($field['name']) ?>" value="<?php echo $value ?>" <?php echo $type;?>/>
 		<?php
 	}
 	
